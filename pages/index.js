@@ -19,13 +19,13 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="mb-12 text-center my-6">
+      <section className="mb-10 text-center my-6">
         <p className="text-xl">
           I'm Errik Rose and I am learning React and Next.js among other things.
         </p>
       </section>
-      <section className="my-6 px-3 mb-12">
-        <h2 className="text-5xl mb-12 font-bold">Blog</h2>
+      <section className="my-6 px-3 mb-10">
+        <h2 className="text-4xl mb-10 font-bold">Blog</h2>
         <ul className="list-none p-0 m-0">
           {allPostsData.map(({ id, date, title }) => (
             <li className="mb-5" key={id}>

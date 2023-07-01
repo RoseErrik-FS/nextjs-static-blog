@@ -51,7 +51,9 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className="mt-12">
-          <Link href="/">← Back to home</Link>
+          <Link className="text-blue-600 hover:text-blue-800" href="/">
+            ← Back to home
+          </Link>
         </div>
       )}
     </div>

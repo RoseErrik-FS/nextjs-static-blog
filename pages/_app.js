@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/globals.css";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState("dark");
@@ -20,12 +21,17 @@ export default function App({ Component, pageProps }) {
           : "p-0 m-0 font-sans leading-6 text-lg bg-gray-800 text-white"
       }
     >
-      <button
-        onClick={toggleTheme}
-        className="py-2 px-4 bg-blue-600 text-white rounded"
-      >
-        Toggle Theme
-      </button>
+      <div className="flex justify-end p-4">
+        <button
+          onClick={toggleTheme}
+          className="py-2 px-4 bg-blue-600 text-white rounded flex items-center"
+        >
+          {theme === "light" ? <FaSun /> : <FaMoon />}
+          <span className="ml-2">
+            Toggle {theme === "light" ? "Dark" : "Light"}
+          </span>
+        </button>
+      </div>
       <Component {...pageProps} />
     </div>
   );
