@@ -19,4 +19,4 @@ It is using Tailwind CSS for styling.
 
 ## deployed to vercel
 
-[nextjs-static-blog]()
+[nextjs-static-blog](https://nextjs-static-blog-five.vercel.app/)
