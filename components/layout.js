@@ -3,17 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const name = "Errik Rose";
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Static - Blog";
 
 export default function Layout({ children, home }) {
   return (
     <div className="mx-auto px-4 max-w-xl py-12">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content="A Next.js Static Blog" />
       </Head>
       <header className="flex flex-col items-center">
         {home ? (
