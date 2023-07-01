@@ -2,8 +2,9 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
+import Link from "next/link";
 
-export default function Post({ postData }) {
+export default function Post({ postData, nextPostId, prevPostId }) {
   return (
     <Layout>
       <Head>
@@ -16,6 +17,18 @@ export default function Post({ postData }) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
+      <div className="flex justify-between my-4">
+        {prevPostId && (
+          <Link className="text-blue-500" href={`/posts/${prevPostId}`}>
+            ← Previous Post
+          </Link>
+        )}
+        {nextPostId && (
+          <Link className="text-blue-500" href={`/posts/${nextPostId}`}>
+            Next Post →
+          </Link>
+        )}
+      </div>
     </Layout>
   );
 }
@@ -29,11 +42,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const allPostIds = getAllPostIds();
   const postData = await getPostData(params.id);
+
+  const currentPostIndex = allPostIds.findIndex(
+    (idObj) => idObj.params.id === params.id
+  );
+  const nextPostId = allPostIds[currentPostIndex + 1]?.params.id || null;
+  const prevPostId = allPostIds[currentPostIndex - 1]?.params.id || null;
 
   return {
     props: {
       postData,
+      nextPostId,
+      prevPostId,
     },
   };
 }
