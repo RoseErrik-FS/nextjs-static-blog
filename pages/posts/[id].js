@@ -16,6 +16,11 @@ export default function Post({ postData, nextPostId, prevPostId }) {
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        {postData.image && (
+          <div className="mt-2 mb-2">
+            <img src={postData.image} alt={postData.alt} />
+          </div>
+        )}
       </article>
       <div className="flex justify-between my-4">
         {prevPostId && (
