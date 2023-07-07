@@ -7,4 +7,4 @@ A while back I found a tutorial covering Next.js 13... well it was more then jus
 
 as I no longer have the files for it as I deleted them here is a picture of my cat
 
-![Cat](../public/images/cat.jpg)
+[Cat](../public/images/cat.jpg)
